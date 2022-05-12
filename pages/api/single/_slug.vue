@@ -2,24 +2,14 @@
   <div>
     <h1>{{ format }}</h1>
     <h2>{{ videoUrl }}</h2>
-    <button class="w-full" v-if="generate" v-on:click="convert(generate.hash)">
-      <div class="hero min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
-        <div class="hero-content text-center">
-          <div class="max-w-md">
-            <h1
-              class="text-2xl font-bold text-white drop-shadow-lg"
-              v-if="generate"
-            >
-              Convert <span class="uppercase">{{ format }}</span> ({{
-                generate.quality
-              }})
-            </h1>
-            <h2 class="font-bold text-white text-md drop-shadow-lg" v-if="generate">
-              {{ generate.title }}
-            </h2>
-          </div>
-        </div>
-      </div>
+    <span v-if="convertFile.taskId"> {{ convertFile.taskId }}</span>
+    <button
+      class="w-full"
+      v-for="gen in generate"
+      :key="gen.title"
+      v-on:click="convert(gen.hash)"
+    >
+      <SingleButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
     </button>
   </div>
 </template>
@@ -32,7 +22,7 @@ export default {
     console.log(format);
     console.log(videoUrl);
     const generate = await $axios
-      .post("/ajax.php", {
+      .post("/ajax", {
         ftype: format,
         url: videoUrl,
       })
@@ -45,9 +35,11 @@ export default {
             ? response.data.tasks[0].bitrate + " kbps"
             : response.data.tasks[0].qualityLabel,
           hash: response.data.tasks[0].hash,
+          headline: "Convert",
+          format: format,
         };
         console.log(data);
-        return data;
+        return { data };
       })
       .catch(function (error) {
         console.log(error);
@@ -55,25 +47,31 @@ export default {
 
     return { videoUrl, format, generate };
   },
+  data() {
+    return {
+      generate: [],
+      convertFile: [],
+    };
+  },
   methods: {
     async convert(fileHash) {
+      this.convertFile = 'fuck';
       console.log(fileHash);
-      const convertFile = await this.$axios
-      .post("/ajax.php", {
-        hash: fileHash,
-      })
-      .then(function (response) {
-        console.log(response);
-        // return response.data;
-        const data = {
-
-        };
-        // console.log(data);
-        // return data;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      const task = await this.$axios
+        .post("/ajax", {
+          hash: fileHash,
+        })
+        .then(function (response) {
+          console.log(response);
+          return response.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        console.log(task);
+      this.convertFile = task;
+      this.$router.push('/api/single/task/' + task.taskId )
+      // this.router.push('/bla')
     },
   },
 };
