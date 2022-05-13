@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>{{ format }}</h1>
-    <h2>{{ videoUrl }}</h2>
     <span v-if="convertFile.taskId"> {{ convertFile.taskId }}</span>
     <button
       class="w-full"
@@ -19,18 +17,15 @@ export default {
   async asyncData({ params, route, $axios }) {
     const format = params.slug;
     const videoUrl = route.query.url;
-    console.log(format);
-    console.log(videoUrl);
+
     const generate = await $axios
       .post("/ajax", {
         ftype: format,
         url: videoUrl,
       })
       .then(function (response) {
-        console.log(response);
-        // return response.data;
         const data = {
-          title: response.data.title,
+          subline: response.data.title,
           quality: response.data.tasks[0].bitrate
             ? response.data.tasks[0].bitrate + " kbps"
             : response.data.tasks[0].qualityLabel,
@@ -38,7 +33,6 @@ export default {
           headline: "Convert",
           format: format,
         };
-        console.log(data);
         return { data };
       })
       .catch(function (error) {
