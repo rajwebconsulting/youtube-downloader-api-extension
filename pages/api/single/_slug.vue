@@ -49,23 +49,18 @@ export default {
   },
   methods: {
     async convert(fileHash) {
-      this.convertFile = 'fuck';
-      console.log(fileHash);
       const task = await this.$axios
         .post("/ajax", {
           hash: fileHash,
         })
         .then(function (response) {
-          console.log(response);
           return response.data;
         })
         .catch(function (error) {
           console.log(error);
         });
-        console.log(task);
       this.convertFile = task;
       this.$router.push('/api/single/task/' + task.taskId )
-      // this.router.push('/bla')
     },
   },
 };

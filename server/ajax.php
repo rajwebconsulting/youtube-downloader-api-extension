@@ -63,6 +63,13 @@ if (json_last_error() == JSON_ERROR_NONE)
     // Return response instead of outputting
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+    // ignore SSL certificate verify
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    // Force IPv4
+    curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+
     // Execute the POST request
     $result = curl_exec($ch);
 
