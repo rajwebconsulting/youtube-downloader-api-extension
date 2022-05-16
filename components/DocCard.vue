@@ -34,24 +34,36 @@
         <pre><code>width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"&gt;&lt;/iframe&gt;</code></pre>
       </div>
       <div v-if="resizeJsCode">
-        <JsResizerCode />
+        <JsResizerCode :frameId="iframeId" />
+        <p class="text-center">Generates this:</p>
+        <iframe
+          v-resize="{ log: false }"
+          :id="iframeId"
+          :src="PreUrl"
+          width="100%"
+          height="100%"
+          allowtransparency="true"
+          scrolling="no"
+          style="border: none"
+        ></iframe>
       </div>
-      <p class="text-center">Generates this:</p>
-      <iframe
-        v-resize="{ log: false,  minHeight: reqMinHeight}"
-        :id="iframeId"
-        :src="PreUrl"
-        width="100%"
-        height="100%"
-        allowtransparency="true"
-        scrolling="no"
-        style="border: none"
-      ></iframe>
+      <div v-else>
+        <p class="text-center">Generates this:</p>
+        <iframe
+          :id="iframeId"
+          :src="PreUrl"
+          width="100%"
+          height="100%"
+          allowtransparency="true"
+          scrolling="no"
+          style="border: none"
+        ></iframe>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import iframeResize from 'iframe-resizer/js/iframeResizer';
+import iframeResize from "iframe-resizer/js/iframeResizer";
 export default {
   data() {
     return {};
@@ -80,12 +92,12 @@ export default {
       type: Boolean,
     },
   },
-  directives:  {
+  directives: {
     resize: {
-      bind (el, { value = {} }) {
-        el.addEventListener('load', () => iframeResize(value, el))
-      }
-    }
-  }
+      bind(el, { value = {} }) {
+        el.addEventListener("load", () => iframeResize(value, el));
+      },
+    },
+  },
 };
 </script>

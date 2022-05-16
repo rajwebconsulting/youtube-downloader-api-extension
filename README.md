@@ -1,69 +1,62 @@
-# mcp-client-apis
+## RajWebConsulting
 
-## Build Setup
+### YouTube to MP3 Converter and MP4 Downloader API extension.
 
-```bash
-# install dependencies
-$ yarn install
+##### This script is an extension for MP3 Converter Pro v3 from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts) and enables you to install Single/Multi Button and Widget APIs on multiple Domains and consuming the JSON API of the Main MP3 Converter Pro v3 installation, to have a SOLID infrastructure (Using File Caching and saving CPU ressources).
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+- Main Version requires a MP3 Converter Pro v3 License from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts)
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+```diff
+> If you don't want to buy a MP3 Converter Pro License and use your own Server resources,
+> then please consider using the ready to use Button and Widget APIs (Contains Ads) from my Main Sponsor.
 
-# generate static project
-$ yarn generate
+@@ (You don't need to download this Script, if using his APIs.) @@
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+> #### Main Sponsor
+> https://ytconvert.me
 
 
-### `pages`
+#### Donations
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+- Each Donation is helpful. Thank you so much for supporting me.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+<a href="https://www.buymeacoffee.com/andre.h1984" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-### `plugins`
+#### Demo
+- Please see a running DEMO on the domain of my Main Sponsor.
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+#### Installation
+This package requires Nodejs version 16.15.0 or later to build the app.
 
-### `static`
+1. Download the zip file from Github.
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
+2. install dependencies via yarn.
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+```bash
+yarn install
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+4. rename the .env.example file to .env and edit the example variables
+```env
+APP_NAME="YouTube to MP3 APIs"
+APP_DOMAIN="https://example.com" # Domain where you wantr to install this app
+APP_API_URL="https://example.com" # Domain of the ajax.php. usually should be the same as the APP_DOMAIN
+``` 
 
-### `store`
+5. Build for production
+```bash
+yarn build
+yarn generate
+```
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+6. Copy `.htaccess` and `ajax.php` files from `server` folder to `dist` folder
+ and Add your MP3 Converter Pro v3 domain in the `ajax.php`
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+```php
+// Your MP3 Converter Pro v3 URL here
+$baseUrl = 'https://example.com';
+```
+
+7. Set your Domain Working directory to `/dist` folder

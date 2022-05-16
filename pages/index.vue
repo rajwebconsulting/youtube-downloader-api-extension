@@ -11,8 +11,18 @@
       reqMinHeight="192px"
       :resizeJsCode="false"
     />
-
-    <DocCard class="my-8"
+    <DocCard
+      class="my-8"
+      title="Button API"
+      :ExampleUrl="ButtonExampleUrl"
+      :PreUrl="ButtonPreUrl"
+      :requireFtype="false"
+      iframeId="buttonApi"
+      reqMinHeight="200px"
+      :resizeJsCode="true"
+    />
+    <DocCard
+      class="my-8"
       title="Widget v2 API"
       :ExampleUrl="Widgetv2ExampleUrl"
       :PreUrl="Widgetv2PreUrl"
@@ -34,6 +44,11 @@ export default {
       SinglePreUrl:
         process.env.APP_DOMAIN +
         "/api/single/mp3?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
+      ButtonExampleUrl:
+        process.env.APP_DOMAIN + "/api/button/{FTYPE}?url={VIDEO_URL}",
+      ButtonPreUrl:
+        process.env.APP_DOMAIN +
+        "/api/button/mp3?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
       Widgetv2ExampleUrl:
         process.env.APP_DOMAIN + "/api/widgetv2?url={VIDEO_URL}",
       Widgetv2PreUrl:

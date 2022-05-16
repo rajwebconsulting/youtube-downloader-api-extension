@@ -1,13 +1,14 @@
 <?php
-// Your MP3 Converter v3 URL here
+//Your MP3 Converter Pro v3 URL here
 $baseUrl = 'https://example.com';
 
-// API restriction
-header("Access-Control-Allow-Origin: *");
+// API CORS restriction (Only required if you running ajax.php and Frontend on different domains).
+// header("Access-Control-Allow-Origin: *"); // Allow all domains
+// header("Access-Control-Allow-Origin: https://example.com"); // Allow only one domain.
 
 // Additional Headers
 header('Access-Control-Allow-Methods: POST');
-header("Access-Control-Allow-Headers: Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+header("Access-Control-Allow-Headers: Content-Type");
 
 // CHANGES BELLOW at your own RISK
 
