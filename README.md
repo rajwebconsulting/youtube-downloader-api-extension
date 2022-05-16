@@ -38,20 +38,20 @@ This package requires Nodejs version 16.15.0 or later to build the app.
 yarn install
 ```
 
-4. rename the .env.example file to .env and edit the example variables
+3. rename the .env.example file to .env and edit the example variables
 ```env
 APP_NAME="YouTube to MP3 APIs"
 APP_DOMAIN="https://example.com" # Domain where you wantr to install this app
 APP_API_URL="https://example.com" # Domain of the ajax.php. usually should be the same as the APP_DOMAIN
 ``` 
 
-5. Build for production
+4. Build for production
 ```bash
 yarn build
 yarn generate
 ```
 
-6. Copy `.htaccess` and `ajax.php` files from `server` folder to `dist` folder
+5. Copy `.htaccess` and `ajax.php` files from `server` folder to `dist` folder
  and Add your MP3 Converter Pro v3 domain in the `ajax.php`
 
 ```php
@@ -59,4 +59,4 @@ yarn generate
 $baseUrl = 'https://example.com';
 ```
 
-7. Set your Domain Working directory to `/dist` folder
+6. Set your Domain Working directory to `/dist` folder
