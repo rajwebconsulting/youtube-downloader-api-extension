@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen py-4">
-    <Widget :data="generate" :url="videoUrl" :showTumbnail="true"/>
+    <Widget :data="generate" :url="videoUrl" :showTumbnail="false"/>
   </div>
 </template>
 

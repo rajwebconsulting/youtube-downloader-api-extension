@@ -7,7 +7,7 @@
               {{ res.headline }} <span class="uppercase" v-if="res.format">{{ res.format }}</span> <span v-if="res.quality">({{ res.quality }})</span>
             </h1>
             <h2 class="font-bold text-white text-md drop-shadow-lg">
-              {{ res.subline }}
+              {{ res.subline }} {{res.filesize}}
             </h2>
           </div>
         </div>

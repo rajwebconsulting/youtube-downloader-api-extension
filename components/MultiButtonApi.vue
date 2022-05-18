@@ -10,7 +10,7 @@
         <div class="text-2xl tracking-wide uppercase">{{ r.format }}</div>
         <div>{{ r.quality }}</div>
         <div class="h-0 m-0 divider"></div>
-        <div>Convert</div>
+        <div>{{ r.filesize }}</div>
       </div>
     </div>
   </div>
@@ -27,12 +27,14 @@ export default {
             quality: value.bitrate + " kbps",
             hash: value.hash,
             className: `w-28 p-2 mx-2 my-2 text-center border rounded-lg cursor-pointer bit${value.bitrate}`,
+            filesize: value.filesize
           }
         : {
             format: "mp4",
             quality: value.qualityLabel,
             hash: value.hash,
             className: `w-28 p-2 mx-2 my-2 text-center border rounded-lg cursor-pointer v${value.bitrate}`,
+            filesize: value.filesize
           };
 
       dataOut.push(data);

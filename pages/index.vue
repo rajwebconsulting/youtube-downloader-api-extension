@@ -8,17 +8,24 @@
       :PreUrl="SinglePreUrl"
       :requireFtype="true"
       iframeId="singleButtonApi"
-      reqMinHeight="192px"
       :resizeJsCode="false"
     />
     <DocCard
       class="my-8"
-      title="Button API"
+      title="Multi Button API"
       :ExampleUrl="ButtonExampleUrl"
       :PreUrl="ButtonPreUrl"
-      :requireFtype="false"
+      :requireFtype="true"
       iframeId="buttonApi"
-      reqMinHeight="200px"
+      :resizeJsCode="true"
+    />
+    <DocCard
+      class="my-8"
+      title="Widget API"
+      :ExampleUrl="WidgetExampleUrl"
+      :PreUrl="WidgetPreUrl"
+      :requireFtype="false"
+      iframeId="widgetApi"
       :resizeJsCode="true"
     />
     <DocCard
@@ -28,7 +35,6 @@
       :PreUrl="Widgetv2PreUrl"
       :requireFtype="false"
       iframeId="widgetv2Api"
-      reqMinHeight="400px"
       :resizeJsCode="true"
     />
   </div>
@@ -54,6 +60,11 @@ export default {
       Widgetv2PreUrl:
         process.env.APP_DOMAIN +
         "/api/widgetv2?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
+      WidgetExampleUrl:
+        process.env.APP_DOMAIN + "/api/widget?url={VIDEO_URL}",
+      WidgetPreUrl:
+        process.env.APP_DOMAIN +
+        "/api/widget?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
     };
   },
 };

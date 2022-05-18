@@ -1,20 +1,28 @@
 <template>
   <div>
-    <span v-if="convertFile.taskId"> {{ convertFile.taskId }}</span>
-    <button
-      class="w-full"
-      v-for="gen in generate"
-      :key="gen.title"
-      v-on:click="convert(gen.hash)"
-    >
-      <SingleButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
-    </button>
+    <div v-if="loading">loading</div>
+    <div v-else>
+      <button
+        class="w-full"
+        v-for="gen in generate"
+        :key="gen.title"
+        v-on:click="convert(gen.hash)"
+      >
+        <SingleButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      generate: []
+    };
+  },
   async asyncData({ params, route, $axios }) {
+    let loading = true;
     const format = params.slug;
     const videoUrl = route.query.url;
 
@@ -32,20 +40,16 @@ export default {
           hash: response.data.tasks[0].hash,
           headline: "Convert",
           format: format,
+          filesize: "- " + response.data.tasks[0].filesize,
         };
         return { data };
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
+      .finally(() => (loading = false));
 
-    return { videoUrl, format, generate };
-  },
-  data() {
-    return {
-      generate: [],
-      convertFile: [],
-    };
+    return { videoUrl, format, generate, loading };
   },
   methods: {
     async convert(fileHash) {
@@ -59,8 +63,7 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-      this.convertFile = task;
-      this.$router.push('/api/single/task/' + task.taskId )
+      this.$router.push("/api/single/task/" + task.taskId);
     },
   },
 };

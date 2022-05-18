@@ -85,9 +85,6 @@ export default {
     requireFtype: {
       type: Boolean,
     },
-    reqMinHeight: {
-      type: String,
-    },
     resizeJsCode: {
       type: Boolean,
     },
