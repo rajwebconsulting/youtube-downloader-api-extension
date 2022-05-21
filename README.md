@@ -52,11 +52,15 @@ yarn generate
 ```
 
 5. Copy `.htaccess` and `ajax.php` files from `server` folder to `dist` folder
- and Add your MP3 Converter Pro v3 domain in the `ajax.php`
+ and Add your MP3 Converter Pro v3 domain and YouTube Video Backend domain and API KEY in the `ajax.php`
 
 ```php
 // Your MP3 Converter Pro v3 URL here
 $baseUrl = 'https://example.com';
+// Your YouTube Video Backend v3 URL and API KEY here
+$backendUrl = 'http://backend.example.com';
+// Generate an API Key in Backend Admin Panel and paste it here.
+$backendApiKey = 'YOUR_API_KEY';
 ```
 
 6. Set your Domain Working directory to `/dist` folder

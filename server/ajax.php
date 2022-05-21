@@ -1,6 +1,10 @@
 <?php
-//Your MP3 Converter Pro v3 URL here
+// Your MP3 Converter Pro v3 URL here
 $baseUrl = 'https://example.com';
+// Your YouTube Video Backend v3 URL and API KEY here
+$backendUrl = 'http://backend.example.com';
+// Generate an API Key in Backend Admin Panel and paste it here.
+$backendApiKey = 'YOUR_API_KEY';
 
 // API CORS restriction (Only required if you running ajax.php and Frontend on different domains).
 // header("Access-Control-Allow-Origin: *"); // Allow all domains
