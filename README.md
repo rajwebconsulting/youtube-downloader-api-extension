@@ -4,7 +4,7 @@
 
 ##### This script is an extension for MP3 Converter Pro v3 from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts) and enables you to install Single/Multi Button, Widget and Search APIs on multiple Domains and consuming the JSON API of the Main MP3 Converter Pro v3 (MCP) and YouTube Video Backend v3 installation, to have a SOLID infrastructure (by using File Caching and saving CPU ressources by avoid multiple MCP instances on same Server.).
 
-- Main Version requires a MP3 Converter Pro v3 License from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts)
+- Main Version requires a MP3 Converter Pro v3 and YouTube Video Backend License from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts)
 
 ```diff
 > If you don't want to buy a MP3 Converter Pro License and use your own Server resources,
