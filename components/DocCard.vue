@@ -40,7 +40,7 @@
         <JsResizerCode :frameId="iframeId" />
         <p class="text-center">Generates this:</p>
         <iframe
-          v-resize="{ log: false }"
+          v-resize="{ log: false, heightCalculationMethod: 'taggedElement'}"
           :id="iframeId"
           :src="PreUrl"
           width="100%"

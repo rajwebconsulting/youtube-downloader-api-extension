@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-4 p-2">
+  <div class="flex flex-wrap place-content-center gap-4 justify-center mx-auto p-2">
     <SearchCard v-for="s in search" :key="s.key" :data="s"/>
   </div>
 </div>
