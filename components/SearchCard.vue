@@ -1,7 +1,7 @@
 <template>
-  <div class="card card-compact w-56 bg-base-100 shadow-xl">
+  <div class="card card-compact w-full sm:w-56 bg-base-100 shadow-xl">
     <figure>
-      <img :src="data.thumbnail[0].url" :alt="data.title" />
+      <img class="w-full" :src="getImgUrl(data.videoId)" :alt="data.title" />
     </figure>
     <div class="card-body">
       <h2 class="text-md">{{ data.title }}</h2>
@@ -25,6 +25,9 @@ export default {
     },
   },
   methods: {
+    getImgUrl(vid) {
+      return "https://i.ytimg.com/vi/" + vid + "/mqdefault.jpg";
+    },
     async convertVideo(videoId) {
       this.$router.push(
         "/api/widgetv2?url=https://www.youtube.com/watch?v=" + videoId

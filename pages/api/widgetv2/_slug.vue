@@ -1,11 +1,23 @@
 <template>
   <div class="min-h-screen py-4">
-    <Widget :data="generate" :url="videoUrl" :showTumbnail="true"/>
+    <Widget :data="generate" :url="videoUrl" :showTumbnail="true" />
   </div>
 </template>
 
 <script>
 export default {
+  head() {
+    return {
+      script: [
+        {
+          src: process.env.APP_API_ADS || "",
+          async: true,
+          body: true,
+          "data-cfasync": "false",
+        },
+      ],
+    };
+  },
   async asyncData({ route, $axios }) {
     const videoUrl = route.query.url;
     const generate = await $axios
