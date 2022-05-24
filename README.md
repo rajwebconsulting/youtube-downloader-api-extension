@@ -44,8 +44,8 @@ APP_NAME="YouTube to MP3 APIs"
 APP_DOMAIN="https://example.com" # Domain where you wantr to install this app
 APP_API_URL="https://example.com" # Domain of the ajax.php. usually should be the same as the APP_DOMAIN
 
-// Support for Popup Ads. (Will add Scripttag to body)
-// Paste only the URL to external script here. Dont add full script tags.
+# Support for Popup Ads. (Will add Scripttag to body)
+# Paste only the URL to external script here. Dont add full script tags.
 APP_API_ADS=""
 APP_SEARCH_ADS=""
 ``` 
