@@ -7,7 +7,9 @@
         <div class="card-actions">
           <span></span>
           <a v-if="items.btnDisabled" class="btn" disabled>Download</a>
-          <a v-else :href="items.download" class="btn">Download {{ items.format }}</a>
+          <a v-else :href="items.download" class="btn"
+            >Download {{ items.format }}</a
+          >
         </div>
       </div>
     </div>
@@ -16,6 +18,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      script: [
+        {
+          src: process.env.APP_API_ADS || "",
+          async: true,
+          body: true,
+          'data-cfasync': 'false'
+        },
+      ],
+    };
+  },
   data() {
     return {
       items: {},

@@ -16,9 +16,21 @@
 
 <script>
 export default {
+  head() {
+    return {
+      script: [
+        {
+          src: process.env.APP_API_ADS || "",
+          async: true,
+          body: true,
+          "data-cfasync": "false",
+        },
+      ],
+    };
+  },
   data() {
     return {
-      generate: []
+      generate: [],
     };
   },
   async asyncData({ params, route, $axios }) {

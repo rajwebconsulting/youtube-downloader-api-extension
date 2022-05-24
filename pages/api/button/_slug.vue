@@ -1,12 +1,24 @@
 <template>
-<div>
-  <MultiButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
-</div>
+  <div>
+    <MultiButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
+  </div>
 </template>
 
 <script>
 export default {
-async asyncData({ params, route, $axios }) {
+  head() {
+    return {
+      script: [
+        {
+          src: process.env.APP_API_ADS || "",
+          async: true,
+          body: true,
+          'data-cfasync': 'false'
+        },
+      ],
+    };
+  },
+  async asyncData({ params, route, $axios }) {
     const format = params.slug;
     const videoUrl = route.query.url;
     const generate = await $axios
@@ -15,7 +27,7 @@ async asyncData({ params, route, $axios }) {
         url: videoUrl,
       })
       .then(function (response) {
-        const data = response.data
+        const data = response.data;
         return { data };
       })
       .catch(function (error) {
@@ -43,8 +55,8 @@ async asyncData({ params, route, $axios }) {
           console.log(error);
         });
       this.convertFile = task;
-      this.$router.push('/api/button/task/' + task.taskId )
+      this.$router.push("/api/button/task/" + task.taskId);
     },
   },
-}
+};
 </script>
