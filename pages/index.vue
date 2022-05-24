@@ -6,36 +6,55 @@
       title="Single Button API"
       :ExampleUrl="SingleExampleUrl"
       :PreUrl="SinglePreUrl"
+      paramName="VIDEO_URL"
       :requireFtype="true"
       iframeId="singleButtonApi"
       :resizeJsCode="false"
+      :isSearch="false"
     />
     <DocCard
       class="my-8"
       title="Multi Button API"
       :ExampleUrl="ButtonExampleUrl"
       :PreUrl="ButtonPreUrl"
+      paramName="VIDEO_URL"
       :requireFtype="true"
       iframeId="buttonApi"
       :resizeJsCode="true"
+      :isSearch="false"
     />
     <DocCard
       class="my-8"
       title="Widget API"
       :ExampleUrl="WidgetExampleUrl"
       :PreUrl="WidgetPreUrl"
+      paramName="VIDEO_URL"
       :requireFtype="false"
       iframeId="widgetApi"
       :resizeJsCode="true"
+      :isSearch="false"
     />
     <DocCard
       class="my-8"
       title="Widget v2 API"
       :ExampleUrl="Widgetv2ExampleUrl"
       :PreUrl="Widgetv2PreUrl"
+      paramName="VIDEO_URL"
       :requireFtype="false"
       iframeId="widgetv2Api"
       :resizeJsCode="true"
+      :isSearch="false"
+    />
+    <DocCard
+      class="my-8"
+      title="Search API"
+      :ExampleUrl="SearchExampleUrl"
+      :PreUrl="SearchPreUrl"
+      paramName="SEARCH_TERM"
+      :requireFtype="false"
+      iframeId="searchApi"
+      :resizeJsCode="true"
+      :isSearch="true"
     />
   </div>
 </template>
@@ -65,6 +84,11 @@ export default {
       WidgetPreUrl:
         process.env.APP_DOMAIN +
         "/api/widget?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
+      SearchExampleUrl:
+        process.env.APP_DOMAIN + "/api/search{SEARCH_TERM}",
+      SearchPreUrl:
+        process.env.APP_DOMAIN +
+        "/api/search/sia",
     };
   },
 };

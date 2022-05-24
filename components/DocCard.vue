@@ -23,8 +23,11 @@
         <div class="badge">FTYPE</div>
         <p>mp3 or mp4</p>
       </span>
-      <div class="badge">VIDEO_URL</div>
-      <p>
+      <div class="badge">{{paramName}}</div>
+      <p v-if="isSearch">
+        i.e. sia
+      </p>
+      <p v-else>
         any YouTube, SoundCloud, Facebook, Twitter, Instagram, TikTok, Vimeo,
         Dailymotion, VK, or AOL Video URL
       </p>
@@ -37,7 +40,7 @@
         <JsResizerCode :frameId="iframeId" />
         <p class="text-center">Generates this:</p>
         <iframe
-          v-resize="{ log: false }"
+          v-resize="{ log: false, heightCalculationMethod: 'taggedElement'}"
           :id="iframeId"
           :src="PreUrl"
           width="100%"
@@ -85,9 +88,15 @@ export default {
     requireFtype: {
       type: Boolean,
     },
+    paramName: {
+      type: String,
+    },
     resizeJsCode: {
       type: Boolean,
     },
+    isSearch: {
+      type: Boolean,
+    }
   },
   directives: {
     resize: {

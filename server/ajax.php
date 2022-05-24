@@ -1,6 +1,10 @@
 <?php
-//Your MP3 Converter Pro v3 URL here
+// Your MP3 Converter Pro v3 URL here
 $baseUrl = 'https://example.com';
+// Your YouTube Video Backend v3 URL and API KEY here
+$backendUrl = 'http://backend.example.com';
+// Generate an API Key in Backend Admin Panel and paste it here.
+$backendApiKey = 'YOUR_API_KEY';
 
 // API CORS restriction (Only required if you running ajax.php and Frontend on different domains).
 // header("Access-Control-Allow-Origin: *"); // Allow all domains
@@ -20,10 +24,11 @@ if (json_last_error() == JSON_ERROR_NONE)
   $ftype = (isset($json['ftype'])) ? trim($json['ftype']) : '';
   $hash = (isset($json['hash'])) ? trim($json['hash']) : '';
   $taskId = (isset($json['taskId'])) ? trim($json['taskId']) : '';
+  $term = (isset($json['term'])) ? trim($json['term']) : '';
 
   if (!empty($url) && !empty($ftype))
   {
-    $apiEndpoint = '/api/json';
+    $apiEndpoint = $baseUrl . '/api/json';
     $postData = array(
       'url' => $url,
       'ftype' => $ftype
@@ -31,26 +36,30 @@ if (json_last_error() == JSON_ERROR_NONE)
   }
   else if (!empty($hash))
   {
-    $apiEndpoint = '/api/json';
+    $apiEndpoint = $baseUrl . '/api/json';
     $postData = array(
       'hash' => $hash
     );
   }
   else if (!empty($taskId))
   {
-    $apiEndpoint = '/api/json/task';
+    $apiEndpoint = $baseUrl . '/api/json/task';
     $postData = array(
       'taskId' => $taskId
+    );
+  }
+  else if (!empty($term))
+  {
+    $apiEndpoint = $backendUrl . '/api/search';
+    $postData = array(
+      'term' => $term
     );
   }
 
   if (isset($postData))
   {
-    // API URL
-    $url = $baseUrl . $apiEndpoint;
-
     // Create a new cURL resource
-    $ch = curl_init($url);
+    $ch = curl_init($apiEndpoint);
 
     // Setup request to send json via POST
     $payload = json_encode($postData);
@@ -59,7 +68,7 @@ if (json_last_error() == JSON_ERROR_NONE)
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
     // Set the content type to application/json
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'apiKey: ' . $backendApiKey));
 
     // Return response instead of outputting
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
