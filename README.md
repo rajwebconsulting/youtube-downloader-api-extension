@@ -6,13 +6,6 @@
 
 - Main Version requires a MP3 Converter Pro v3 and YouTube Video Backend License v3 from [RajWebConsulting](https://shop.rajwebconsulting.com/store/converter-scripts)
 
-```diff
-> If you don't want to buy a MP3 Converter Pro License and use your own Server resources,
-> then please consider using the ready to use Button and Widget APIs (Contains Ads) from my Main Sponsor.
-
-@@ (You don't need to download this Script, if using his APIs.) @@
-```
-
 > #### Main Sponsor
 > https://ytconvert.me
 
