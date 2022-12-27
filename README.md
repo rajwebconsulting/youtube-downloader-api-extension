@@ -34,7 +34,7 @@ yarn install
 3. rename the .env.example file to .env and edit the example variables
 ```env
 APP_NAME="YouTube to MP3 APIs"
-APP_DOMAIN="https://example.com" # Domain where you wantr to install this app
+APP_DOMAIN="https://example.com" # Domain where you want to install this app
 APP_API_URL="https://example.com" # Domain of the ajax.php. usually should be the same as the APP_DOMAIN
 
 # Support for Popup Ads. (Will add Script tag to body)
