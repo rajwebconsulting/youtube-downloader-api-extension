@@ -33,11 +33,20 @@ npm install
 
 3. rename the .env.example file to .env and edit the example variables
 ```env
+# App name (Title)
 APP_NAME="YouTube to MP3 APIs"
-APP_DOMAIN="http://example.com" # Domain where you want to install this app
-APP_API_URL="https://example.com" # Domain of MP3 Converter Pro v3
-APP_BACKEND_URL="https://backend.example.com" # Domain of YouTube Video Backend v3
-APP_BACKEND_API_KEY="YOUR_API_KEY" # API Key generated in YouTube Video Backend Admin Panel
+
+# Domain where you want to install this app
+APP_DOMAIN=http://example.com
+
+# Domain of MP3 Converter Pro v3
+APP_API_URL=https://example.com
+
+# Domain of YouTube Video Backend v3
+APP_BACKEND_URL=https://backend.example.com
+
+# API Key generated in YouTube Video Backend Admin Panel
+APP_BACKEND_API_KEY=YOUR_API_KEY
 
 # Support for Popup Ads. (Will add Script tag to body)
 # Paste only the URL to external script here. Dont add full script tags.
