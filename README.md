@@ -21,21 +21,23 @@
 
 
 #### Installation
-This package requires Nodejs version 16.15.0 or later (LTS) to build the app.
+This package requires Nodejs version 16.13.0+ and lower as 17.0.0 to build the app.
 
 1. Download the zip file from Github.
 
-2. install dependencies via yarn.
+2. install dependencies via npm.
 
 ```bash
-yarn install
+npm install
 ```
 
 3. rename the .env.example file to .env and edit the example variables
 ```env
 APP_NAME="YouTube to MP3 APIs"
-APP_DOMAIN="https://example.com" # Domain where you want to install this app
-APP_API_URL="https://example.com" # Domain of the ajax.php. usually should be the same as the APP_DOMAIN
+APP_DOMAIN="http://example.com" # Domain where you want to install this app
+APP_API_URL="https://example.com" # Domain of MP3 Converter Pro v3
+APP_BACKEND_URL="https://backend.example.com" # Domain of YouTube Video Backend v3
+APP_BACKEND_API_KEY="YOUR_API_KEY" # API Key generated in YouTube Video Backend Admin Panel
 
 # Support for Popup Ads. (Will add Script tag to body)
 # Paste only the URL to external script here. Dont add full script tags.
@@ -45,20 +47,10 @@ APP_SEARCH_ADS="https://myAdCompany.com/script123" # leave it empty for no ads
 
 4. Build for production
 ```bash
-yarn build
-yarn generate
+npm run build
+npm run generate
 ```
 
-5. Copy `.htaccess` and `ajax.php` files from `server` folder to `dist` folder
- and Add your MP3 Converter Pro v3 domain and YouTube Video Backend domain and API KEY in the `ajax.php`
-
-```php
-// Your MP3 Converter Pro v3 URL here
-$baseUrl = 'https://example.com';
-// Your YouTube Video Backend v3 URL and API KEY here
-$backendUrl = 'http://backend.example.com';
-// Generate an API Key in Backend Admin Panel and paste it here.
-$backendApiKey = 'YOUR_API_KEY';
-```
+5. Copy `.htaccess` file from `server` folder to `dist` folder
 
 6. Set your Domain Working directory to `/dist` folder

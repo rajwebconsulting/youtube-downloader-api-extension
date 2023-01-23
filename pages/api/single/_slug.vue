@@ -2,12 +2,7 @@
   <div>
     <div v-if="loading">loading</div>
     <div v-else>
-      <button
-        class="w-full"
-        v-for="gen in generate"
-        :key="gen.title"
-        v-on:click="convert(gen.hash)"
-      >
+      <button class="w-full" v-for="gen in generate" :key="gen.title" v-on:click="convert(gen.hash)">
         <SingleButtonApi v-for="gen in generate" :key="gen.title" :res="gen" />
       </button>
     </div>
@@ -39,7 +34,7 @@ export default {
     const videoUrl = route.query.url;
 
     const generate = await $axios
-      .post("/ajax", {
+      .post("/api/json", {
         ftype: format,
         url: videoUrl,
       })
@@ -66,7 +61,7 @@ export default {
   methods: {
     async convert(fileHash) {
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json", {
           hash: fileHash,
         })
         .then(function (response) {

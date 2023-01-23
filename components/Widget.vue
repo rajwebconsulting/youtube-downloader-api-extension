@@ -99,7 +99,7 @@ export default {
   methods: {
     async changeFormat(ftype) {
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json", {
           ftype: ftype,
           url: this.url,
         })
@@ -113,7 +113,7 @@ export default {
     },
     async convertFileTo(hash) {
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json", {
           hash: hash,
         })
         .then(function (response) {

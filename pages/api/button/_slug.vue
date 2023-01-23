@@ -22,7 +22,7 @@ export default {
     const format = params.slug;
     const videoUrl = route.query.url;
     const generate = await $axios
-      .post("/ajax", {
+      .post("/api/json", {
         ftype: format,
         url: videoUrl,
       })
@@ -45,7 +45,7 @@ export default {
   methods: {
     async convert(fileHash) {
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json", {
           hash: fileHash,
         })
         .then(function (response) {

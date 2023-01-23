@@ -51,7 +51,7 @@ export default {
   methods: {
     async convertFileTo(hash) {
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json", {
           hash: hash,
         })
         .then(function (response) {

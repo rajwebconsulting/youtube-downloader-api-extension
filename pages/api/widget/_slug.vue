@@ -21,7 +21,7 @@ export default {
   async asyncData({ route, $axios }) {
     const videoUrl = route.query.url;
     const generate = await $axios
-      .post("/ajax", {
+      .post("/api/json", {
         ftype: "mp3",
         url: videoUrl,
       })

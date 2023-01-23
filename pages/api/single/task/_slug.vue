@@ -36,7 +36,7 @@ export default {
     loadData: async function () {
       const taskId = this.$route.params.slug;
       const task = await this.$axios
-        .post("/ajax", {
+        .post("/api/json/task", {
           taskId: taskId,
         })
         .then(function (response) {

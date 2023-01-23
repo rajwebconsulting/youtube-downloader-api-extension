@@ -34,8 +34,10 @@ export default {
     let loading = true;
     const searchterm = params.slug;
     const search = await $axios
-      .post("/ajax", {
-        term: searchterm,
+      .post(process.env.APP_BACKEND_URL + "/api/search", {term: searchterm}, {
+        headers: {
+          "apiKey": process.env.APP_BACKEND_API_KEY
+        }
       })
       .then(function (response) {
         return response.data.results;
