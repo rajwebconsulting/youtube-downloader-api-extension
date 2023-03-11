@@ -21,7 +21,7 @@
 
 
 #### Installation
-This package requires Nodejs version 16.13.0+ and lower as 17.0.0 to build the app.
+This package requires Nodejs version 16.13.0 to build the app.
 
 1. Download the zip file from Github.
 
