@@ -85,7 +85,7 @@ export default {
         process.env.APP_DOMAIN +
         "/api/widget?url=https://www.youtube.com/watch?v=zvrMzRVtj1s",
       SearchExampleUrl:
-        process.env.APP_DOMAIN + "/api/search{SEARCH_TERM}",
+        process.env.APP_DOMAIN + "/api/search/{SEARCH_TERM}",
       SearchPreUrl:
         process.env.APP_DOMAIN +
         "/api/search/sia",
