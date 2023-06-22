@@ -63,3 +63,26 @@ npm run generate
 5. Copy `.htaccess` file from `server` folder to `dist` folder
 
 6. Set your Domain Working directory to `/dist` folder
+
+---
+
+If u getting CORS error then Modify MP3 Converter Pro
+
+change in config/cors.php
+```php
+'paths' => ['sanctum/csrf-cookie'],
+```
+
+to
+
+```php
+'paths' => ['sanctum/csrf-cookie', 'api/*'],
+```
+
+remove from  app/Http/Controllers/ApiController.php
+
+```php
+Line 402: header('Access-Control-Allow-Origin: ' . $protocol . '://' . $referer);
+
+Line 409: header('Access-Control-Allow-Origin: *');
+```
